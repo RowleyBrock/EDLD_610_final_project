@@ -1,0 +1,137 @@
+---
+title             : "EDLD 610 Final Project"
+shorttitle        : "Cool Title Name here"
+
+author: 
+  - name          : "Brock Rowley"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Behavioral Research & Teaching (BRT)
+                    175 Lokey Education 5262 
+                    University of Oregon
+                    Eugene, OR, 97403-5262"
+    email         : "brockr@uoregon.edu"
+  - name          : "Kyle Reardon"
+    affiliation   : "1"
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Oregon"
+
+
+authornote: |
+  Brock Rowley is a Senior Research Associate at Behavioral Research and Teaching (BRT) in the Education Methodolgy, Policy, and Leadership in the Coledge of Education. 
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter Kyle's (author) note here.
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  
+  One or two sentences to put the results into a more **general context**.
+  
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["r-references.bib"]
+
+floatsintext      : no
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+linenumbers       : no
+mask              : no
+draft             : no
+
+documentclass     : "apa6"
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+
+
+# Methods
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+## Material
+
+## Procedure
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "r-references.bib")
+```
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+<div id = "refs"></div>
+\endgroup
+
+\newpage
+
+# Final Paper
+
+Hello Kyle,
+Looking forward to working with you on this project. Feel free to invite the person you were talking about in class?? as the third member of our crew. 
+All the best,
+Brock
+
+## The final project must:
+
+(a) be a reproducible and dynamic APA manuscript produced with R Markdown, via
+the {papaja} package and include references to the extant literature; 
+(b) be housed on GitHub, with contributions from all authors obvious;
+(c) demonstrate moving data from its raw “messy” format to a tidy data format
+through the R Markdown file, but not in the final document;
+(d) include at least two exploratory data visualizations, and
+(e) include at least summary statistics of the data in tables, although fitted
+models of any sort are an added bonus (not literally, there are not extra points
+for fitting a model).
+
+## The points for the final project are broken down as follows: 
+### Writing (abstract, intro, methods, results, discussion, references)
+
+* 30 points(25%) Document is fully reproducible and housed on GitHub 
+* 25 points (21%) Demonstrate use of inline code 
+* 5 points (4%) Demonstrate tidying messy data 
+* 30 points (25%) Two data visualizations 
+* 20 points(10 points each) (17%) Production of at least one table (of summary
+  statistics or model results)
+* 10 points (8%)
