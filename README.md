@@ -1,1 +1,4 @@
-EDLD_610_Intro_Data_Sci_R
+# Course repo
+Here's what we still need for the final project
+* data
+* report
