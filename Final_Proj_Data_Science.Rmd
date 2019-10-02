@@ -1,0 +1,60 @@
+---
+title: "EDLD_610_final_project"
+author: 
+- "Brock Rowley"
+- "Kyle Reardon"
+affiliation: "University of Oregon"
+date: "12/11/2019"
+output: 
+  pdf_document:
+    toc: yes
+    toc_depth: 5
+    keep_tex: yes
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+  word_document:
+    toc: yes
+    toc_depth: '4'
+header-includes:
+  - \pagenumbering{gobble}
+  - \usepackage{placeins}
+  - \usepackage{float}
+  - \usepackage{caption}
+  - \captionsetup[figure]{labelformat = empty}
+  - \usepackage{xcolor}
+  - \definecolor{link}{rgb}{0, 0, 238}
+  - \usepackage{booktabs}
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Final Paper
+
+Hello Kyle,
+Looking forward to working with you on this project. Feel free to invite the person you were talking about in class as the third member of our crew. 
+
+## The final project must:
+
+(a) be a reproducible and dynamic APA manuscript produced with R Markdown, via
+the {papaja} package and include references to the extant literature; 
+(b) be housed on GitHub, with contributions from all authors obvious;
+(c) demonstrate moving data from its raw “messy” format to a tidy data format
+through the R Markdown file, but not in the final document;
+(d) include at least two exploratory data visualizations, and
+(e) include at least summary statistics of the data in tables, although fitted
+models of any sort are an added bonus (not literally, there are not extra points
+for fitting a model).
+
+## The points for the final project are broken down as follows: 
+Writing (abstract, intro, methods, results, discussion, references)
+
+* 30 points(25%) Document is fully reproducible and housed on GitHub 
+* 25 points (21%) Demonstrate use of inline code 
+* 5 points (4%) Demonstrate tidying messy data 
+* 30 points (25%) Two data visualizations 
+* 20 points(10 points each) (17%) Production of at least one table (of summary
+  statistics or model results)
+* 10 points (8%)

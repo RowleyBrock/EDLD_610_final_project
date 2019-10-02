@@ -1,0 +1,14 @@
+data/*
+amos/*
+tests/*
+*_cache/
+/cache/
+.Rapp.history
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+*.log
+*.tex
+*.pdf
