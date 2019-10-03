@@ -23,7 +23,7 @@ authornote: |
   Brock Rowley is a Senior Research Associate at Behavioral Research and Teaching (BRT) in the Education Methodolgy, Policy, and Leadership in the Coledge of Education. 
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
 
-  Enter Kyle's (author) note here.
+  Kyle Reardon (M.A. Special Education) is a doctoral candidate at the University of Oregon and a Graduate Employee in the Special Education department. His research interests include Universal Design in post-secondary educational settings to support students with disabilities, support for students on the autism spectrum attending post-secondary education, and the role of self-determination in secondary transition for individuals with disabilities.
 
 abstract: |
   One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
