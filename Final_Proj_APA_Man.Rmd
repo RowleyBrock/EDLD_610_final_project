@@ -73,6 +73,7 @@ library(janitor)
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
+
 ```{r load_data}
 d <- import(here("data", "employer.sav")) %>%  
             characterize() %>% 
@@ -82,12 +83,35 @@ d <- import(here("data", "employer.sav")) %>%
 
 
 # Methods
-We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+I just copied and pasted info directly into the sections from what Kyle sent, including the two questions Klye said would be worth looking at:
+
+a) What are employers experiences hiring individuals with disabilities?
+b) What industries are most open to hiring individuals with disabilities?
+
+Survey participants will be contacted via email and asked to respond to an
+online survey (attachment A). Recruitment emails will include a recruitment
+statement and a link to the survey, which will be developed using online survey
+software called Qualtrics. The survey is being developed by the researchers
+conducting the current using previous employer surveys described in prior
+studies (Ju et al., 2014; ODEP, 2008) as an impetus for the survey and will
+include additional questions and necessary modifications in order to address the
+specific research questions described above. Though the survey is still
+currently under development by the research team, a draft survey is attached to
+this application (attachment B). The research team will submit an IRB amendment
+once the final draft of the survey is complete.
 
 ## Participants
-
+Our intent is to include relevant employers from across the country, generating
+a sample representative of employers across all industries. We will target
+individuals who are responsible for or knowledgeable of the hiring practices at
+their respective places of employment, though the specifics of this will be
+unable to be confirmed. They may be managers, Human Resources representatives,
+or others in charge of hiring.
 ## Material
-
+A researcher-developed survey comprised of questions targeting the hiring
+practices and willingness of employers to hire individuals with disabilities
+will be used in this study (see attachment A). The survey is anticipated to take
+approximately 20 minutes to complete.
 ## Procedure
 
 ## Data analysis
