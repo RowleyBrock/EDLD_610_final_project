@@ -1,0 +1,28 @@
+---
+title: "Final_Project_Outline"
+author: "Akhila, Brock, Jeff, Kyle"
+date: "10/28/2019"
+output: html_document
+---
+
+
+
+                
+
+# Final Project Outline
+
+## Dataset
+
+Our project dataset is derived from a survey designed to get employers perspectives of individuals with disabilities in the workforce. The survey was developed by researchers at the University of Oregon. US Business Data was used to generate a pool of potential employers to participate in the survey. The survey included demographic information and company practices. Informed consent was received for each participating employer and study procedures were approved by the University of Oregon Institutional Review Board.
+
+The dataset contains 1,686 records
+
+## Data Preperation
+
+Preliminary work will include some basic transformations as we move from raw to tidy data. As we attempt to answer our research questions we may decide it is best to work with only a subset of the data. In that case we would filter the data. For example, we will examine missing data and determine whether we can consider that data is missing at random. We may then filter our data to include only employers who provided complete or near complete data. 
+After we have transformed our dataset we will begin the process of visualization. This will include, but not limited to, examining bar charts, histograms, line charts and scatterplots using _ggplot_ . We will also examine basic descriptive data (e.g., means, Standard deviations, correlations, etc.). The visual and descriptive analysis will help inform on possible data reduction approaches. For example, we may reduce the number of variables we examine by creating scales via exploratory or confirmatory factor analysis. 
+
+## Meeting Final Requirements
+
+
+
