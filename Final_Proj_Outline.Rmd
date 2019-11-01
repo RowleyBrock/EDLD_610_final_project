@@ -43,19 +43,20 @@ or confirmatory factor analysis.
 ### Draft Data Preparation Script (25 points)
 At the end of Week 8, we will have a draft of the data preparation complete,
 including moving the data from its raw to tidy form and a variety of exploratory
-data visualizations. Final project will use the following functions:   
-gather,  
-separate,   
-select,   
-filter,  
-spread,   
-group_by,   
-and summarize.
+data visualizations. Final project will use the following functions:  
+
+* `gather`
+* `separate`
+* `select`
+* `filter`
+* `spread`
+* `group_by`
+* `summarize`
 
 ### Peer Review of Data Preparation Script (25 points)
-During our peer review, we will note:   
-(a) at least three areas of strength,   
-(b) at least one thing you learned from reviewing their script, and   
+During our peer review, we will note:  
+(a) at least three areas of strength,  
+(b) at least one thing you learned from reviewing their script, and  
 (c) at least one and no more than three areas for improvement.  
 
 ### Final Project Presentation (25 points)
@@ -82,6 +83,6 @@ for fitting a model).
 Writing (abstract, intro, methods, results, discussion, references) 30 points (25%)   
 Document is fully reproducible and housed on GitHub 25 points (21%)   
 Demonstrate use of inline code 5 points (4%)  
-Demonstrate tidying messy data30 points (25%)   
+Demonstrate tidying messy data 30 points (25%)   
 Two data visualizations 20 points (10 points each) (17%)   
 Production of at least one table (of summary statistics or model results) 10 points (8%)  
