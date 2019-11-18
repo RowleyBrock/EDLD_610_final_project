@@ -6,6 +6,27 @@ output: html_document
 ---
 # Final Project Outline
 
+##Tasks and Roles
+
+- Kyle:
+  - select: get rid of columns not going to use 
+  - filter : remove cases with all missing
+  - rename: change variable names 
+  
+- Jeff:
+  - table of company, size (number of cases)
+  - reorder: columns 24-28 (make column 25 come after column 24)
+
+- Akhila:
+  - frequency count for each question, then bar plot OR recode from string to values
+  - figure: likert scale plots 
+      cols: Q24 -- has 6 different parts
+      -through Q28 
+
+- Brock:
+  - figure of the heatmap
+
+
 ## Dataset
 
 Our project dataset is derived from a survey designed to get employers
