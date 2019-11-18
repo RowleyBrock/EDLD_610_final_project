@@ -91,7 +91,11 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```{r load_data}
 d <- import(here("data", "employer.sav")) %>%  
             characterize() %>% 
-            janitor::clean_names()
+            janitor::clean_names() 
+
+d_trim <- d %>% 
+  select(location_latitude, location_longitude, q3:q14, q25_1:q28_7) %>% 
+  filter(complete.cases(.))
 ```
 
 
