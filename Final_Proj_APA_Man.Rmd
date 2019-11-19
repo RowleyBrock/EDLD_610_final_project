@@ -94,11 +94,16 @@ d <- import(here("data", "employer.sav")) %>%
             janitor::clean_names() 
 
 d_trim <- d %>% 
-  select(location_latitude, location_longitude, q3:q14, q25_1:q28_7) %>% 
-  filter(complete.cases(.))
+  select(location_latitude, location_longitude, q3:q6, q7, q8, q25_1:q28_7) %>% 
+  filter(complete.cases(.)) %>% 
+  rename(loc_lat = location_latitude, loc_long = location_longitude, role = q3, state = q4, company_size = q5, industry = q6, yrs_company = q7, yrs_role = q8, basic_1 = q25_1, basic_2 = q25_2, basic_3 = q25_3, basic_4 = q25_4, basic_5 = q25_5, basic_6 = q25_6, basic_7 = q25_7, basic_8 = q25_8, higherorder_1 = q24_1, higherorder_2 = q24_2, higherorder_3 = q24_3, higherorder_4 = q24_4, higherorder_5 = q24_5, higherorder_6 = q24_6, persmanage_1 = q26_1, persmanage_2 = q26_2, persmanage_3 = q26_3, persmanage_4 = q26_4, persmanage_5 = q26_5, persmanage_6 = q26_6, persmanage_7 = q26_7, persmanage_8 = q26_8, persmanage_9 = q26_9, persmanage_10 = q26_10, persmanage_11 = q26_11, persmanage_12 = q26_12, interpers_1 = q27_1, interpers_2 = q27_2, interpers_3 = q27_3, interpers_4 = q27_4, interpers_5 = q27_5, interpers_6 = q27_6, interpers_7 = q27_7, attribute_1 = q28_1, attribute_2 = q28_2, attribute_3 = q28_3, attribute_4 = q28_4, attribute_5 = q28_5, attribute_6 = q28_6, attribute_7 = q28_7)
+
 ```
 
 ```{r lat_long}
+install.packages("maps")
+install.packages("RColorBrewer")
+install.packages("mapproj")
 library(ggplot2)
 library(maps)
 library(RColorBrewer)
