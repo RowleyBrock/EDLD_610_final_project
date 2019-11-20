@@ -1,4 +1,9 @@
 # Course repo
+
+<!-- badges: start -->
+[![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RowleyBrock/EDLD_610_final_project/master?urlpath=rstudio)
+<!-- badges: end -->
+
 ## Here's what we still need for the final project
 * data from messy to tidy
 * two exploratory data visualizations
