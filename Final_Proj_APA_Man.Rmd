@@ -101,9 +101,12 @@ d_trim <- d %>%
 ```
 
 ```{r lat_long}
-install.packages("maps")
-install.packages("RColorBrewer")
-install.packages("mapproj")
+
+if(!require(maps)){install.packages("maps")}
+if(!require(RColorBrewer)){install.packages("RColorBrewer")}
+if(!require(mapproj)){install.packages("mapproj")}
+
+
 library(ggplot2)
 library(maps)
 library(RColorBrewer)
@@ -160,15 +163,62 @@ scale_fill_viridis(
 
 #Q24= higherorder, 1= solve probs; 2= seek help, 3= critical thinking, 4=creative thinking, 5=impact of decisions, 6= employ research
 
+if(!require(psych)){install.packages("psych")}
+if(!require(likert)){install.packages("likert")}
+
 
 View(d_trim)
 
-d_trim <- d_trim %>% 
-  as_tibble() %>% 
-  factor(higherorder_1, ordered = TRUE, levels =
-           "Not at all", "Somewhat", "Very", "Extremely")
-    
+higherorder <- d_trim %>% 
+  drop_na() %>% 
+  select(starts_with("higherorder")) %>% 
+  mutate(higherorder_1= factor(higherorder_1,
+                               levels = c(
+                                   "Not at all",
+                              "Somewhat",
+                              "Very",
+                              "Extremely"),
+                              ordered = TRUE),
+         higherorder_2 = factor(higherorder_2,
+                                 levels = c(
+                                   "Not at all",
+                              "Somewhat",
+                              "Very",
+                              "Extremely"),
+                              ordered = TRUE),
+         higherorder_3 = factor(higherorder_3,
+                                 levels = c(
+                                   "Not at all",
+                              "Somewhat",
+                              "Very",
+                              "Extremely"),
+                              ordered = TRUE),
+         higherorder_4= factor(higherorder_4,
+                                levels = c(
+                                   "Not at all",
+                              "Somewhat",
+                              "Very",
+                              "Extremely"),
+                              ordered = TRUE),
+         higherorder_5 = factor(higherorder_5,
+                                 levels = c(
+                                   "Not at all",
+                              "Somewhat",
+                              "Very",
+                              "Extremely"),
+                              ordered = TRUE),
+         higherorder_6 = factor(higherorder_6,
+                                 levels = c(
+                                   "Not at all",
+                              "Somewhat",
+                              "Very",
+                              "Extremely"),
+                              ordered = TRUE))
 
+summary(higherorder)
+str(higherorder$higherorder_1)
+
+likert(higherorder)
 
 #q24_plot <- d_trim %>% 
 #  group_by(industry) %>% 
