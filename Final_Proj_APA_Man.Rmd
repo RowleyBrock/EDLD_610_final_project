@@ -82,6 +82,14 @@ if(!require(maps)){install.packages("maps")}
 if(!require(RColorBrewer)){install.packages("RColorBrewer")}
 if(!require(mapproj)){install.packages("mapproj")}
 
+library(holepunch)
+write_compendium_description(package = "EDLD 610 Final", 
+                             description = "Final project for Intro to Data Science")
+write_dockerfile(maintainer = "Brock_Rowley")
+generate_badge()
+build_binder()
+
+
 library("papaja")
 library(rio)
 library(here)
