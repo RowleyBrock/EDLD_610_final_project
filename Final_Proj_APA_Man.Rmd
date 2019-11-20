@@ -75,11 +75,25 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
+
+if(!require(psych)){install.packages("psych")}
+if(!require(likert)){install.packages("likert")}
+if(!require(maps)){install.packages("maps")}
+if(!require(RColorBrewer)){install.packages("RColorBrewer")}
+if(!require(mapproj)){install.packages("mapproj")}
+
 library("papaja")
 library(rio)
 library(here)
 library(tidyverse)
 library(janitor)
+library(ggplot2)
+library(maps)
+library(RColorBrewer)
+library(mapproj)
+library(viridis)
+library(psych)
+library(likert)
 ```
 
 ```{r analysis-preferences}
@@ -101,17 +115,6 @@ d_trim <- d %>%
 ```
 
 ```{r lat_long}
-
-if(!require(maps)){install.packages("maps")}
-if(!require(RColorBrewer)){install.packages("RColorBrewer")}
-if(!require(mapproj)){install.packages("mapproj")}
-
-
-library(ggplot2)
-library(maps)
-library(RColorBrewer)
-library(mapproj)
-library(viridis)
 
 counts_state <- count(d_trim, region = tolower(q4))
 
@@ -158,10 +161,6 @@ ggplot(md, aes(long, lat, group = group)) +
 ```{r}
 
 #Q24= higherorder, 1= solve probs; 2= seek help, 3= critical thinking, 4=creative thinking, 5=impact of decisions, 6= employ research
-
-if(!require(psych)){install.packages("psych")}
-if(!require(likert)){install.packages("likert")}
-
 
 View(d_trim)
 
@@ -219,7 +218,6 @@ likert(higherorder)
 #q24_plot <- d_trim %>% 
 #  group_by(industry) %>% 
 #  summarize()
-
 
 ```
 
