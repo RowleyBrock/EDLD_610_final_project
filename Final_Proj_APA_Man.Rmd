@@ -112,7 +112,7 @@ library(maps)
 library(RColorBrewer)
 library(mapproj)
 library(viridis)
-view(d_trim)
+
 counts_state <- count(d_trim, region = tolower(q4))
 
 states <- map_data("state")
@@ -122,21 +122,17 @@ md <- left_join(states, counts_state)
 ggplot(md, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = n)) +
   coord_map() +
-   #theme_map() +
-  theme(legend.position = "bottom") +
     labs(x = NULL, 
          y = NULL, 
          title = "Survey Regional Responses", 
          subtitle = "Number of respondents by state", 
          caption = "Data collected from companies by state") +
-scale_fill_viridis(
-    option = "magma",
-    name = "Number of survey responses",
-    direction = -1,
-    guide = guide_legend(
-    keyheight = unit(5, units = "mm"),
-    title.position = 'top'
-  ))
+  scale_fill_viridis(
+    name = "Number of survey responses\n",
+    direction = 1) +
+  theme_void() +
+  theme(legend.position = "bottom",
+        legend.key.width = unit(2, "cm")) 
 
 # theme_map <- function(...) {
 # theme_minimal() +
