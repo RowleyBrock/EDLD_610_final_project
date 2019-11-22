@@ -106,6 +106,7 @@ if(!require(maps)){install.packages("maps")}
 if(!require(RColorBrewer)){install.packages("RColorBrewer")}
 if(!require(mapproj)){install.packages("mapproj")}
 
+# Suggestion: load all packages at the top of your document rather than within each code chunk? -JW 
 
 library(ggplot2)
 library(maps)
@@ -211,7 +212,7 @@ higherorder <- d_trim %>%
                               "Extremely"),
                               ordered = TRUE))
 
-summary(higherorder)
+summary(higherorder) %>%
 str(higherorder$higherorder_1)
 
 likert(higherorder)
