@@ -76,12 +76,12 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 
-if (!require(psych)) {install.packages("psych")}
-if (!require(likert)) {install.packages("likert")}
-if (!require(maps)) {install.packages("maps")}
-if (!require(RColorBrewer)) {install.packages("RColorBrewer")}
-if (!require(mapproj)) {install.packages("mapproj")}
-if (!require(holepunch)) {remotes::install_github("karthik/holepunch")}
+# if (!require(psych)) {install.packages("psych")}
+# if (!require(likert)) {install.packages("likert")}
+# if (!require(maps)) {install.packages("maps")}
+# if (!require(RColorBrewer)) {install.packages("RColorBrewer")}
+# if (!require(mapproj)) {install.packages("mapproj")}
+# if (!require(holepunch)) {remotes::install_github("karthik/holepunch")}
 
 # write_compendium_description(
 # package = "EDLD 610 Final",
@@ -103,6 +103,7 @@ library(mapproj)
 library(viridis)
 library(psych)
 library(likert)
+library(shadowtext)
 ```
 
 ```{r analysis-preferences}
@@ -170,25 +171,45 @@ d_trim <- d %>%
 
 ```{r lat_long}
 
+centroids <- import(here("data", "centroids.csv"), 
+                    setclass = "tbl_df") %>% 
+  mutate(region = tolower(name))
+
 counts_state <- count(d_trim, region = tolower(q4))
 
+centroids <- left_join(centroids, counts_state) %>% 
+  mutate(n = ifelse(is.na(n), 0, n))
+
 states <- map_data("state")
-md <- left_join(states, counts_state)
+md <- left_join(states, counts_state) %>% 
+  mutate(states = "state",
+         n = ifelse(is.na(n), 0, n))
 
 ggplot(md, aes(long, lat, group = group)) +
-  geom_polygon(aes(fill = n)) +
+  geom_polygon(aes(fill = n),
+               color = "gray40") +
+  geom_shadowtext(aes(x = longitude, y = latitude, label = n), 
+            data = filter(centroids, 
+                          state != "AK" & 
+                          state != "HI" & 
+                          state != "PR"),
+            inherit.aes = FALSE,
+            col = 'lightsteelblue') +
   coord_map() +
     labs(x = NULL, 
          y = NULL, 
-         title = "Survey Regional Responses") + 
-         # subtitle = "Number of respondents by state", 
-         # caption = "Data collected from companies by state") +
+         title = "Responses by State of Employer Survey") + 
   scale_fill_viridis(
+    option = "inferno",
     name = "Number of survey responses\n",
     direction = 1) +
   theme_void() +
   theme(legend.position = "bottom",
-        legend.key.width = unit(2, "cm"))
+        legend.key.width = unit(2, "cm"),
+        plot.background = element_rect(fill = 'gray20', colour = 'gray20'),
+        plot.title = element_text(color = "white", size = 20),
+        legend.text = element_text(color = "gray40"),
+        legend.title = element_text(color = "white"))
 ```
 
 ```{r}
