@@ -25,6 +25,7 @@ output: html_document
 
 - Brock:
   - figure of the heatmap
+  - holepunch
 
 
 ## Dataset
@@ -87,10 +88,10 @@ findings/conclusions/results. We will present for approximately
 depending on the enrollment of the class.
 
 ### Final Paper (110 points)
-The final project will:   
+The final project will:  
 (a) be a reproducible and dynamic APA manuscript
 produced with R Markdown, via the {papaja} package and include references to the
-extant literature;   
+extant literature;  
 (b) be housed on GitHub, with contributions from all authors
 obvious;   
 (c) demonstrate moving data from its raw “messy” format to a tidy data

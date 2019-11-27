@@ -1,15 +1,15 @@
 Type: Compendium
 Package: EDLD 610 Final
-Title: What the Package Does (One Line, Title Case)
+Title: Holepunch Final Project for EDLD 610 (One Line, Title Case)
 Version: 0.0.1
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Brock",
+           family = "Rowley",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "brockr@uoregon.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Final project for Intro to Data Science
-License: What license it uses
+License: license to ILL
 Depends: 
     ggplot2,
     here,

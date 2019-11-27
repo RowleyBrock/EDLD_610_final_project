@@ -89,7 +89,10 @@ output            : papaja::apa6_pdf
 # write_dockerfile(maintainer = "Brock_Rowley")
 # generate_badge()
 # build_binder()
-
+# x <- holepunch::get_dependencies(".")
+# rem <- lapply(x, remotes:::package2remote)
+# rem[[which(x == "pluralize")]]
+devtools::install_deps()
 library(holepunch)
 library(papaja)
 library(rio)
