@@ -95,6 +95,7 @@ output            : papaja::apa6_pdf
 #install.packages("renv")
 #renv::init()
 # devtools::install_deps()
+library(devtools)
 library(renv)
 library(holepunch)
 library(papaja)
@@ -175,7 +176,7 @@ d_trim <- d %>%
          attribute_7 = q28_7)
 ```
 
-```{r lat_long}
+```{r heatmap, fig.cap= "Number of surveys collected by state."}
 
 centroids <- import(here("data", "centroids.csv"), 
                     setclass = "tbl_df") %>% 
@@ -204,7 +205,7 @@ ggplot(md, aes(long, lat, group = group)) +
   coord_map() +
     labs(x = NULL, 
          y = NULL, 
-         title = "Responses by State of Employer Survey") + 
+         title = "Employer Survey Responses by State") + 
   scale_fill_viridis(
     option = "inferno",
     name = "Number of survey responses\n",
