@@ -21,7 +21,7 @@ affiliation:
     institution   : "University of Oregon"
 
 authornote: |
-  Akhila Nekkanti  
+  Akhila Nekkanti (B.S.) is a doctoral candidate in the Prevention Science program at the University of Oregon. Her current research examines the impacts of early adversity on children's executive functioning capacities and resting-state neural activity. Akhila is co-mentored by Drs. Skowron and Mills on her OSLER TL1 project examining the impacts of an intensive, practice-based intervention (i.e., PCIT) on children's functional brain organization. Her long-term goal is to delineate the type and extent of environmental enrichment necessary for enhancing lasting change in self-regulatory capacity in children facing early caregiving adversity and trauma.
 
   Kyle Reardon (M.A. Special Education) is a doctoral candidate at the
   University of Oregon and a Graduate Employee in the Special Education
@@ -212,62 +212,40 @@ ggplot(md, aes(long, lat, group = group)) +
         legend.title = element_text(color = "white"))
 ```
 
-```{r}
+```{r likert_plots}
 
 #Q24= higherorder, 1= solve probs; 2= seek help, 3= critical thinking, 4=creative thinking, 5=impact of decisions, 6= employ research
 
-View(d_trim)
+#View(d_trim)
 
-higherorder <- d_trim %>% 
+d_trim <- d_trim %>% 
   drop_na() %>% 
-  select(starts_with("higherorder")) %>% 
-  mutate(higherorder_1 = factor(higherorder_1,
+  mutate_at(vars("basic_1":"attribute_7"), 
+            funs(factor(.,
                                levels = c(
                                    "Not at all",
                               "Somewhat",
                               "Very",
                               "Extremely"),
-                              ordered = TRUE),
-         higherorder_2 = factor(higherorder_2,
-                                 levels = c(
-                                   "Not at all",
-                              "Somewhat",
-                              "Very",
-                              "Extremely"),
-                              ordered = TRUE),
-         higherorder_3 = factor(higherorder_3,
-                                 levels = c(
-                                   "Not at all",
-                              "Somewhat",
-                              "Very",
-                              "Extremely"),
-                              ordered = TRUE),
-         higherorder_4 = factor(higherorder_4,
-                                levels = c(
-                                   "Not at all",
-                              "Somewhat",
-                              "Very",
-                              "Extremely"),
-                              ordered = TRUE),
-         higherorder_5 = factor(higherorder_5,
-                                 levels = c(
-                                   "Not at all",
-                              "Somewhat",
-                              "Very",
-                              "Extremely"),
-                              ordered = TRUE),
-         higherorder_6 = factor(higherorder_6,
-                                 levels = c(
-                                   "Not at all",
-                              "Somewhat",
-                              "Very",
-                              "Extremely"),
-                              ordered = TRUE))
+                              ordered = TRUE)))
 
-summary(higherorder)
-str(higherorder$higherorder_1)
+basic <- d_trim %>% 
+  select(contains("basic"))
 
-likert(higherorder)
+higherorder <- d_trim %>% 
+  select(contains("higherorder"))
+
+persmanage <- d_trim %>% 
+  select(contains("persmanage"))
+
+##################### finish with remaining variables
+
+
+#levels(d_trim$higherorder_1)  #check that it worked
+
+higherorder_result = likert(higherorder)
+summary(higherorder_result)
+plot(higherorder_result, type = "bar")
 
 #q24_plot <- d_trim %>% 
 #  group_by(industry) %>% 
