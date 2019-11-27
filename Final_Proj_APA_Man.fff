@@ -1,0 +1,7 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Final_Proj_APA_Man_files/figure-latex/lat_long-1.pdf}
+\caption{}
+\end{figure*}
