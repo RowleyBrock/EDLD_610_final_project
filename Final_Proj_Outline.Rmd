@@ -24,8 +24,9 @@ output: html_document
       -through Q28 
 
 - Brock:
-  - figure of the heatmap
+  - figure of the heatmap with survey data overlaid
   - holepunch
+  - renv/packrat
 
 
 ## Dataset
