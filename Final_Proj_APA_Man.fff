@@ -2,6 +2,6 @@
 \ifnextchar[{\eatarg}{}
 
 \centering
-\includegraphics{Final_Proj_APA_Man_files/figure-latex/lat_long-1.pdf}
-\caption{(\#fig:lat\_long)Number of surveys collected by state.}
+\includegraphics{Final_Proj_APA_Man_files/figure-latex/heatmap-1.pdf}
+\caption{\label{fig:heatmap}Number of surveys collected by state.}
 \end{figure*}
