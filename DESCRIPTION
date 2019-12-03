@@ -10,10 +10,7 @@ Authors@R:
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Final project for Intro to Data Science
 License: license to ILL
-Depends: 
-    dplyr,
-    devtools,
-    ggplot2,
+Depends:
     here,
     holepunch,
     janitor,
@@ -30,7 +27,6 @@ Depends:
     rvest,
     shadowtext,
     tidyverse,
-    viridis
 Remotes: 
     crsh/papaja,
     karthik/holepunch
