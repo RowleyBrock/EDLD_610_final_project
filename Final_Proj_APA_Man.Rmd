@@ -107,7 +107,7 @@ output            : papaja::apa6_pdf
 #install.packages("curl")
 #install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
 #renv::migrate("Final_Proj_Outline.Rmd") 
-library(devtools)
+#library(devtools)
 library(dplyr)
 library(renv)
 library(holepunch)
