@@ -12,6 +12,7 @@ Description: Final project for Intro to Data Science
 License: license to ILL
 Depends: 
     dplyr,
+    devtools,
     ggplot2,
     here,
     holepunch,
