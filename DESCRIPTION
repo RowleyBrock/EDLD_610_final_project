@@ -11,8 +11,10 @@ Authors@R:
 Description: Final project for Intro to Data Science
 License: license to ILL
 Depends: 
+    dplyr,
     ggplot2,
     here,
+    holepunch,
     janitor,
     knitr,
     likert,
@@ -21,11 +23,15 @@ Depends:
     papaja,
     psych,
     RColorBrewer,
+    renv,
     rio,
     rmarkdown,
+    rvest,
+    shadowtext,
     tidyverse,
     viridis
 Remotes: 
-    crsh/papaja
+    crsh/papaja,
+    karthik/holepunch
 Encoding: UTF-8
 LazyData: true
