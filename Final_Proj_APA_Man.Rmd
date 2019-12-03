@@ -102,6 +102,8 @@ output            : papaja::apa6_pdf
 # rem[[which(x == "pluralize")]]
 #install.packages("renv")
 #renv::init()
+#renv::dependencies()
+#renv::hydrate()
 #renv::snapshot()
 #devtools::install_deps()
 #install.packages("curl")
