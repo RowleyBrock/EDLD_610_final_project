@@ -102,10 +102,11 @@ output            : papaja::apa6_pdf
 # rem[[which(x == "pluralize")]]
 #install.packages("renv")
 #renv::init()
-renv::snapshot()
+#renv::snapshot()
 #devtools::install_deps()
 #install.packages("curl")
 #install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
+#renv::migrate("Final_Proj_Outline.Rmd") 
 library(devtools)
 library(renv)
 library(holepunch)
