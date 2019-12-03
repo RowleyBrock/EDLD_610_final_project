@@ -1,6 +1,6 @@
 ---
 title             : "EDLD 610 Final Project"
-shorttitle        : "Cool running headder here"
+shorttitle        : "Employer Perspectives on Hiring Individuals with Disabilities"
 author:
   - name          : "Akhila Nekkanti"
     affiliation   : "1"
@@ -44,7 +44,7 @@ authornote: |
   Methodolgy, Policy, and Leadership (EMPL) in the Coledge of Education at the
   University of Oregon.
 
-  Jeff Gau
+  Jeff Gau 
 
 abstract: |
   Not only does a career promote financial independence, it can also provide an
@@ -108,6 +108,7 @@ output            : papaja::apa6_pdf
 #install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
 #renv::migrate("Final_Proj_Outline.Rmd") 
 library(devtools)
+library(dplyr)
 library(renv)
 library(holepunch)
 library(papaja)
@@ -186,6 +187,8 @@ d_trim <- d %>%
          attribute_5 = q28_5, 
          attribute_6 = q28_6, 
          attribute_7 = q28_7)
+
+
 ```
 
 ```{r heatmap, fig.cap= "Number of surveys collected by state."}
@@ -248,29 +251,92 @@ d_trim <- d_trim %>%
                               "Extremely"),
                               ordered = TRUE)))
 
-basic <- d_trim %>% 
-  select(contains("basic"))
-
 higherorder <- d_trim %>% 
-  select(contains("higherorder"))
-
-persmanage <- d_trim %>% 
-  select(contains("persmanage"))
-
-##################### finish with remaining variables
-
-
-#levels(d_trim$higherorder_1)  #check that it worked
+  select(contains("higherorder")) %>% 
+  rename(
+    "Ability to Solve Problems" = higherorder_1,
+    "Ability to Seek Help When Needed" = higherorder_2,
+    "Ability to Think Critically" = higherorder_3,
+    "Ability to Think Creatively" = higherorder_4,
+    "Ability to Consider Impact of Decisions" = higherorder_5,
+    "Ability to Employ Valid Research Strategies" = higherorder_6
+  )
 
 higherorder_result = likert(higherorder)
-summary(higherorder_result)
-plot(higherorder_result, type = "bar")
+plot(higherorder_result, type = "bar",
+     text.size = 4,
+ main = "Higher Order Thinking Skills")
 
-#q24_plot <- d_trim %>% 
-#  group_by(industry) %>% 
-#  summarize()
+######################### persmanage
+
+persmanage <- d_trim %>% 
+  select(contains("persmanage"))%>% 
+  rename(
+    "Ability to Maintain Personal Appearance" = persmanage_1,
+    "Ability to Follow Schedules" = persmanage_2,
+    "Ability to Be On-Time" = persmanage_3,
+    "Ability to Monitor Quality of Work" = persmanage_4,
+    "Ability to Stay with a Task Until Finished" = persmanage_5,
+    "Ability to Control Self and Work" = persmanage_6,
+    "Ability to Accept Authority" = persmanage_7,
+    "Ability to Accept Criticism" = persmanage_8,
+    "Ability to Show High Regard for Safety" = persmanage_9,
+    "Ability to Make Plans and Work Toward Goals" = persmanage_10,
+    "Ability to Recognize and Correct Own Mistakes" = persmanage_11,
+    "Ability to Attend to Personal Health and Financial Well-being" = persmanage_12)
+
+
+persmanage_result = likert(persmanage)
+plot(persmanage_result, type = "bar",
+     text.size = 4,
+ main = "Personal Management Skills")
+
 
 ```
+
+```{r pivot_long_gganimate}
+
+#View(d_trim)
+
+d_long <- d_trim %>%
+  select(c("role":"industry", "interpers_1":"attribute_7")) %>% 
+  pivot_longer(
+    cols = c("interpers_1":"attribute_7"),
+    names_sep = "_",
+    names_to = c("type", "question"),
+    values_to = "category",
+    values_drop_na = TRUE
+  )
+
+
+d_long %>% 
+  filter(type == "interpers" &
+           industry == "Education, Training, and Library" |
+           industry == "Business and Financial" |
+           industry == "Healthcare") %>% 
+ggplot(aes(x= question)) +
+  geom_bar(aes(fill = category), alpha = 0.7, position = position_stack(reverse = TRUE)) +
+                 coord_flip() +
+                 theme(legend.position = "top") +
+  facet_wrap(~industry) +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+  scale_x_discrete(labels=c("1" = "Use Socially Acceptable Language",
+                            "2" = "Show Respect for Others",
+                            "3" = "Work Well with Individuals from Diverse Backgrounds",
+                            "4" = "Cooperate with Others",
+                            "5" = "Model Integrity and Ethical Leadership",
+                            "6" = "Advocate for Self",
+                            "7" = "Negotiate and Resolve Conflict",
+                            "8" = "Communicate Clearly, Effectively, and with Reason")) +
+labs(
+title = " Importance of Interpersonal Skills When Hiring Across Industries",
+x = "",
+y = "")
+
+```
+
 
 # Introduction
 
