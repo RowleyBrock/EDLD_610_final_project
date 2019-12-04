@@ -83,33 +83,32 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
-
 # if (!require(psych)) {install.packages("psych")}
 # if (!require(likert)) {install.packages("likert")}
 # if (!require(maps)) {install.packages("maps")}
 # if (!require(RColorBrewer)) {install.packages("RColorBrewer")}
 # if (!require(mapproj)) {install.packages("mapproj")}
 # if (!require(holepunch)) {remotes::install_github("karthik/holepunch")}
-
-# write_compendium_description(
+# holepunch::build_binder()
+# holepunch::write_compendium_description(
 # package = "EDLD 610 Final",
 # description = "Final project for Intro to Data Science")
-# write_dockerfile(maintainer = "Brock_Rowley")
-# generate_badge()
-# build_binder()
+# holepunch::write_dockerfile(maintainer = "Brock_Rowley")
+# holepunch::generate_badge()
+# holepunch::build_binder()
 # x <- holepunch::get_dependencies(".")
 # rem <- lapply(x, remotes:::package2remote)
 # rem[[which(x == "pluralize")]]
-#install.packages("renv")
-#renv::init()
-#renv::dependencies()
-#renv::hydrate()
-#renv::snapshot()
-#devtools::install_deps()
-#install.packages("curl")
-#install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
-#renv::migrate("Final_Proj_Outline.Rmd") 
-#library(devtools)
+# install.packages("renv")
+# renv::init()
+# renv::dependencies()
+# renv::hydrate()
+# renv::snapshot()
+# devtools::install_deps()
+# install.packages("curl")
+# install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
+# renv::migrate("Final_Proj_Outline.Rmd") 
+# library(devtools)
 library(dplyr)
 library(renv)
 library(holepunch)
