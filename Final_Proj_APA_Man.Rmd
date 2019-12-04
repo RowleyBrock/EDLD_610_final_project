@@ -95,18 +95,14 @@ output            : papaja::apa6_pdf
 # description = "Final project for Intro to Data Science")
 # holepunch::write_dockerfile(maintainer = "Brock_Rowley")
 # holepunch::generate_badge()
-# holepunch::build_binder()
 # x <- holepunch::get_dependencies(".")
 # rem <- lapply(x, remotes:::package2remote)
 # rem[[which(x == "pluralize")]]
-# install.packages("renv")
 # renv::init()
 # renv::dependencies()
 # renv::hydrate()
 # renv::snapshot()
 # devtools::install_deps()
-# install.packages("curl")
-# install.packages("https://github.com/jeroen/curl/archive/master.tar.gz", repos = NULL)
 # renv::migrate("Final_Proj_Outline.Rmd") 
 # library(devtools)
 library(dplyr)
@@ -125,12 +121,6 @@ library(viridis)
 library(psych)
 library(likert)
 library(shadowtext)
-```
-
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
 ```{r load_data}
