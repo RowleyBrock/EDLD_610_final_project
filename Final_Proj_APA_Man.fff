@@ -5,3 +5,10 @@
 \includegraphics{Final_Proj_APA_Man_files/figure-latex/heatmap-1.pdf}
 \caption{\label{fig:heatmap}Number of surveys collected by state.}
 \end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Final_Proj_APA_Man_files/figure-latex/pivot_long_gganimate-1.pdf}
+\caption{}
+\end{figure*}
