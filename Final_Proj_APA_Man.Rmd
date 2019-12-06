@@ -63,7 +63,7 @@ abstract: |
 
 keywords          : "employment, employers, individuals, disabilities, barriers, hiring"
 
-wordcount         : "X"
+wordcount         : "2,999"
 
 bibliography      : ["r-references.bib"]
 
@@ -83,7 +83,8 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
-# renv::snapshot()
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+renv::snapshot()
 # devtools::install_deps()
 # library(devtools)
 library(dplyr)
@@ -102,6 +103,7 @@ library(viridis)
 library(psych)
 library(likert)
 library(shadowtext)
+library(stargazer)
 ```
 
 ```{r load_data}
@@ -159,11 +161,9 @@ d_trim <- d %>%
          attribute_5 = q28_5, 
          attribute_6 = q28_6, 
          attribute_7 = q28_7)
-
-
 ```
 
-```{r heatmap, fig.cap= "Number of surveys collected by state."}
+```{r heatmap, fig.cap = "Number of surveys collected by state."}
 
 centroids <- import(here("data", "centroids.csv"), 
                     setclass = "tbl_df") %>% 
@@ -206,14 +206,15 @@ ggplot(md, aes(long, lat, group = group)) +
         legend.title = element_text(color = "white"))
 ```
 
-```{r, modeling}
+```{r, modeling, results = "asis", out.header = TRUE}
+
 centroids <- import(here("data", "centroids.csv"),
                     setclass = "tbl_df") %>%
   mutate(region = tolower(name))
 
 tbl <- import(here("data", "tbl.csv"),
               setclass = "tbl_df")
-str(tbl)
+
 counts_state <- count(d_trim, region = tolower(q4))
 
 centroids <- left_join(centroids, counts_state) %>% 
@@ -221,13 +222,22 @@ centroids <- left_join(centroids, counts_state) %>%
 
 centroids <- left_join(centroids, tbl)
 
+
 #centered average republican percentage, found no signif
-fit <- lm(n ~ I(scale(republican, scale = FALSE)), data = centroids)
-summary(fit)
+centroids2 <- centroids %>% 
+  mutate(repc = as.numeric(scale(republican, scale = FALSE)))
+
+fit <- lm(n ~ repc, data = centroids2)
+results <- apa_print(fit) 
+
+#stargazer(fit, title = "Simple Linear Regression Model")
+
+apa_table(results$table,
+          caption = "Simple Linear Regression Model")
+
 ```
 
-
-```{r likert_plots}
+```{r likertplots, fig.cap = "Higher order skills"}
 
 #Q24= higherorder, 1= solve probs; 2= seek help, 3= critical thinking, 4=creative thinking, 5=impact of decisions, 6= employ research
 
@@ -259,11 +269,11 @@ higherorder_result = likert(higherorder)
 plot(higherorder_result, type = "bar",
      text.size = 4,
  main = "Higher Order Thinking Skills")
+```
 
-######################### persmanage
-
+```{r, persmanage, fig.cap = "Personal Management Skills"}
 persmanage <- d_trim %>% 
-  select(contains("persmanage"))%>% 
+  select(contains("persmanage")) %>% 
   rename(
     "Ability to Maintain Personal Appearance" = persmanage_1,
     "Ability to Follow Schedules" = persmanage_2,
@@ -283,11 +293,10 @@ persmanage_result = likert(persmanage)
 plot(persmanage_result, type = "bar",
      text.size = 4,
  main = "Personal Management Skills")
-
-
 ```
 
-```{r pivot_long_gganimate}
+
+```{r pivotlonggganimate, fig.cap = "Interpersonal Skills" }
 
 #View(d_trim)
 
@@ -404,42 +413,47 @@ more appropriate job matches, as well as leading to more positive perspectives
 on hiring individuals with disabilities on the part of employers.
 
 # Methods
-I just copied and pasted info directly into the sections from what Kyle sent, including the two questions Klye said would be worth looking at:
+Research Questions:  
+a) What states responded to the survey and at what rate?  
+b) What are employers experiences hiring individuals with disabilities?  
+c) What industries are most open to hiring individuals with disabilities?  
 
-a) What are employers experiences hiring individuals with disabilities?
-b) What industries are most open to hiring individuals with disabilities?
-
-Survey participants will be contacted via email and asked to respond to an
-online survey (attachment A). Recruitment emails will include a recruitment
-statement and a link to the survey, which will be developed using online survey
-software called Qualtrics. The survey is being developed by the researchers
-conducting the current using previous employer surveys described in prior
-studies [@ju2014employability; @domzal2008survey] as an impetus for the survey and will
-include additional questions and necessary modifications in order to address the
-specific research questions described above. Though the survey is still
-currently under development by the research team, a draft survey is attached to
-this application (attachment B). The research team will submit an IRB amendment
-once the final draft of the survey is complete.
+Survey participants were contacted via email and asked to respond to an online
+survey. Recruitment emails  included a recruitment statement and a link to the
+survey, which was developed using online survey software called Qualtrics. The
+survey was developed by the researchers conducting the current using previous
+employer surveys described in prior studies [@ju2014employability;
+@domzal2008survey] as an impetus for the survey and included additional
+questions and necessary modifications in order to address the specific research
+questions described above.
 
 ## Participants
-Our intent is to include relevant employers from across the country, generating
-a sample representative of employers across all industries. We will target
+
+Our intent was to include relevant employers from across the country, generating
+a sample representative of employers across all industries. We targeted
 individuals who are responsible for or knowledgeable of the hiring practices at
 their respective places of employment, though the specifics of this will be
 unable to be confirmed. They may be managers, Human Resources representatives,
 or others in charge of hiring.
+
 ## Material
-A researcher-developed survey comprised of questions targeting the hiring
-practices and willingness of employers to hire individuals with disabilities
-will be used in this study (see attachment A). The survey is anticipated to take
-approximately 20 minutes to complete.
+
+A researcher-developed survey is comprised of questions targeting the hiring
+practices and willingness of employers to hire individuals with disabilities was
+used in this study. The survey was anticipated to take approximately 20 minutes
+to complete.
+
 ## Procedure
 
+One simple analysis we conducted is a visual representation (heatmap) of survey
+responses by states.
+
 ## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
-Given the exploratory purpose of the study (i.e., to learn more about the
-perspectives of employers toward hiring individuals with disabilities), analyses
-will be primarily descriptive in nature. Initially, however, we will conduct a
+
+We used `r cite_r("r-references.bib")` for all our analyses. Given the
+exploratory purpose of the study (i.e., to learn more about the perspectives of
+employers toward hiring individuals with disabilities), analyses will be
+primarily descriptive in nature. Initially, however, we will conduct a
 confirmatory factor analysis to validate factor structures of employability
 skills, basing the factor structures on a previous study (Ju et al., 2012; Ju et
 al., 2014). Next, we will run descriptive statistics for survey items to explore
@@ -450,12 +464,22 @@ exploratory factor analysis) may be used to identify the factor structure of
 perceived characteristics of employers willing to hire individuals with
 disabilities.
 
-# Results
+# Results 
 
+We modeled the number of surveys retured by each state's political affiliation
+(republican and democrat) percentage `r results$full_result$modelfit$r2`. The
+estimate, centered on the average republican percentage by each individaul
+state, found `r results$full_result$repc` No significant evidence exists that
+political affiliation has any effect on the number of responses to this survey,
+retured by individual states.
+\newpage
 # Discussion
 
-
-\newpage
+We were fairly certain that republican dominated states would return
+significantly less responses to a survery involving individuals with
+disabilities. We are still shocked that nothing significant was discovered
+during this fishing expedition. Tell me you stand behind these actions?
+![](Figures/ducktrump.jpeg)
 
 # References
 ```{r create_r-references}

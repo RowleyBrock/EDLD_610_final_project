@@ -27,6 +27,10 @@ output: html_document
   - figure of the heatmap with survey data overlaid
   - holepunch
   - renv/packrat
+  - model = simple linear regresion
+  - inline code
+  - summary table of model
+  - 
 
 
 ## Dataset

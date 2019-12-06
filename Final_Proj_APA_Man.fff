@@ -9,6 +9,20 @@
 \ifnextchar[{\eatarg}{}
 
 \centering
-\includegraphics{Final_Proj_APA_Man_files/figure-latex/pivot_long_gganimate-1.pdf}
-\caption{}
+\includegraphics{Final_Proj_APA_Man_files/figure-latex/likertplots-1.pdf}
+\caption{\label{fig:likertplots}Higher order skills}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Final_Proj_APA_Man_files/figure-latex/persmanage-1.pdf}
+\caption{\label{fig:persmanage}Personal Management Skills}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{Final_Proj_APA_Man_files/figure-latex/pivotlonggganimate-1.pdf}
+\caption{\label{fig:pivotlonggganimate}Interpersonal Skills}
 \end{figure*}
