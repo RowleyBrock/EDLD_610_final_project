@@ -1,18 +1,24 @@
 library(tidyverse)
 library(rvest)
+library(janitor)
+library(here)
+library(xml2)
 
-url <- "https://en.wikipedia.org/wiki/Political_party_strength_in_U.S._states"
-states <- read_html(url) %>%
+url <- "https://www.pewforum.org/religious-landscape-study/compare/party-affiliation/by/state/"
+tbl <- url %>%
+  read_html() %>%
   html_nodes("table") %>%
   html_table()
-party <- states[[4]] %>%
-  clean_names() %>%
-  mutate_all(tolower)
-write_csv(party, here("data", "party.csv"))
 
-head(party)
-party <- party %>%
-  select(state, partisan = partisan_split_as_of_2017_update) %>%
-  separate(partisan, c("politic_perc","other_perc"), sep = "-")
+tbl <- tbl[[1]][-1,] %>%
+  mutate_all(tolower) %>%
+  select(region = State,
+         republican = "Republican/lean Rep.",
+         democrat = "Democrat/lean Dem.")
 
+tbl <- tbl %>%
+  mutate(republican = parse_number(republican),
+         democrat = parse_number(democrat)) %>%
+  select(region, republican, democrat)
 
+write_csv(tbl, here("data", "tbl.csv"))

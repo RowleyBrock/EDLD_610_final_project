@@ -83,27 +83,8 @@ output            : papaja::apa6_pdf
 ---
 
 ```{r setup, include = FALSE}
-# if (!require(psych)) {install.packages("psych")}
-# if (!require(likert)) {install.packages("likert")}
-# if (!require(maps)) {install.packages("maps")}
-# if (!require(RColorBrewer)) {install.packages("RColorBrewer")}
-# if (!require(mapproj)) {install.packages("mapproj")}
-# if (!require(holepunch)) {remotes::install_github("karthik/holepunch")}
-# holepunch::build_binder()
-# holepunch::write_compendium_description(
-# package = "EDLD 610 Final",
-# description = "Final project for Intro to Data Science")
-# holepunch::write_dockerfile(maintainer = "Brock_Rowley")
-# holepunch::generate_badge()
-# x <- holepunch::get_dependencies(".")
-# rem <- lapply(x, remotes:::package2remote)
-# rem[[which(x == "pluralize")]]
-# renv::init()
-# renv::dependencies()
-# renv::hydrate()
 # renv::snapshot()
 # devtools::install_deps()
-# renv::migrate("Final_Proj_Outline.Rmd") 
 # library(devtools)
 library(dplyr)
 library(renv)
@@ -225,6 +206,27 @@ ggplot(md, aes(long, lat, group = group)) +
         legend.title = element_text(color = "white"))
 ```
 
+```{r, modeling}
+centroids <- import(here("data", "centroids.csv"),
+                    setclass = "tbl_df") %>%
+  mutate(region = tolower(name))
+
+tbl <- import(here("data", "tbl.csv"),
+              setclass = "tbl_df")
+str(tbl)
+counts_state <- count(d_trim, region = tolower(q4))
+
+centroids <- left_join(centroids, counts_state) %>% 
+  mutate(n = ifelse(is.na(n), 0, n))
+
+centroids <- left_join(centroids, tbl)
+
+#centered average republican percentage, found no signif
+fit <- lm(n ~ I(scale(republican, scale = FALSE)), data = centroids)
+summary(fit)
+```
+
+
 ```{r likert_plots}
 
 #Q24= higherorder, 1= solve probs; 2= seek help, 3= critical thinking, 4=creative thinking, 5=impact of decisions, 6= employ research
@@ -305,15 +307,15 @@ d_long %>%
            industry == "Education, Training, and Library" |
            industry == "Business and Financial" |
            industry == "Healthcare") %>% 
-ggplot(aes(x= question)) +
+ggplot(aes(x = question)) +
   geom_bar(aes(fill = category), alpha = 0.7, position = position_stack(reverse = TRUE)) +
                  coord_flip() +
                  theme(legend.position = "top") +
   facet_wrap(~industry) +
-  theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank()) +
-  scale_x_discrete(labels=c("1" = "Use Socially Acceptable Language",
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  scale_x_discrete(labels = c("1" = "Use Socially Acceptable Language",
                             "2" = "Show Respect for Others",
                             "3" = "Work Well with Individuals from Diverse Backgrounds",
                             "4" = "Cooperate with Others",
