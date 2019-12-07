@@ -413,10 +413,16 @@ more appropriate job matches, as well as leading to more positive perspectives
 on hiring individuals with disabilities on the part of employers.
 
 # Methods
-Research Questions:  
-a) What states responded to the survey and at what rate?  
-b) What are employers experiences hiring individuals with disabilities?  
-c) What industries are most open to hiring individuals with disabilities?  
+## Research Questions:  
+>*a)* What states responded to the survey and at what rate?  
+>*b)* How do employers rank, "Higher Order Skills" when hiring individuals with disabilities?  
+>*c)* How do employers rank, "Personal Management Skills" when hiring individuals with disabilities?  
+>*d)* How do employers rank, "Interpersonal Skills" when hiring individuals with disabilities?
+
+A researcher-developed survey, comprised of questions targeting the hiring
+practices and willingness of employers to hire individuals with disabilities was
+used in this study. The survey was anticipated to take approximately 20 minutes
+to complete.
 
 Survey participants were contacted via email and asked to respond to an online
 survey. Recruitment emails  included a recruitment statement and a link to the
@@ -427,28 +433,13 @@ employer surveys described in prior studies [@ju2014employability;
 questions and necessary modifications in order to address the specific research
 questions described above.
 
-## Participants
-
 Our intent was to include relevant employers from across the country, generating
 a sample representative of employers across all industries. We targeted
 individuals who are responsible for or knowledgeable of the hiring practices at
 their respective places of employment, though the specifics of this will be
 unable to be confirmed. They may be managers, Human Resources representatives,
-or others in charge of hiring.
-
-## Material
-
-A researcher-developed survey is comprised of questions targeting the hiring
-practices and willingness of employers to hire individuals with disabilities was
-used in this study. The survey was anticipated to take approximately 20 minutes
-to complete.
-
-## Procedure
-
-One simple analysis we conducted is a visual representation (heatmap) of survey
-responses by states.
-
-## Data analysis
+or others in charge of hiring. One simple analysis we conducted is a visual
+representation (heatmap) of survey responses by states.
 
 We used `r cite_r("r-references.bib")` for all our analyses. Given the
 exploratory purpose of the study (i.e., to learn more about the perspectives of
@@ -464,6 +455,21 @@ exploratory factor analysis) may be used to identify the factor structure of
 perceived characteristics of employers willing to hire individuals with
 disabilities.
 
+Preliminary work included some basic transformations as we move from raw to tidy
+data. As we attempt to answer our research questions we decided it is best to
+work with only a subset of the data. We filter the data to better answer the
+research questions. For example, we examined missing data and determine whether
+we can consider that data is missing at random or if what we have is missing
+data that needs to be coded as zero. We filtered our data to include only
+employers who provided complete or near complete data. After we have transformed
+our dataset we begin the process of visualization. This included, but not
+limited to, examining bar charts, histograms, line charts and scatterplots using
+_ggplot_. We also examined basic descriptive data (e.g., means, Standard
+deviations, correlations, etc.). The visual and descriptive analysis helped
+inform on possible data reduction approaches. For example, we reduced the number
+of variables we examine by creating scales via exploratory and confirmatory
+factor analysis.
+
 # Results 
 
 We modeled the number of surveys retured by each state's political affiliation
@@ -473,13 +479,16 @@ state, found `r results$full_result$repc` No significant evidence exists that
 political affiliation has any effect on the number of responses to this survey,
 retured by individual states.
 \newpage
+
 # Discussion
 
 We were fairly certain that republican dominated states would return
 significantly less responses to a survery involving individuals with
 disabilities. We are still shocked that nothing significant was discovered
-during this fishing expedition. Tell me you stand behind these actions?
+during this fishing expedition. Perhaps, some research bias was induced by a
+party affiliation that would stand behind these discriminatory actions?  
 ![](Figures/ducktrump.jpeg)
+\newpage
 
 # References
 ```{r create_r-references}
@@ -492,30 +501,3 @@ r_refs(file = "r-references.bib")
 
 <div id = "refs"></div>
 \endgroup
-
-\newpage
-
-# Final Paper
-
-## The final project must:
-
-(a) be a reproducible and dynamic APA manuscript produced with R Markdown, via
-the {papaja} package and include references to the extant literature; 
-(b) be housed on GitHub, with contributions from all authors obvious;
-(c) demonstrate moving data from its raw “messy” format to a tidy data format
-through the R Markdown file, but not in the final document;
-(d) include at least two exploratory data visualizations, and
-(e) include at least summary statistics of the data in tables, although fitted
-models of any sort are an added bonus (not literally, there are not extra points
-for fitting a model).
-
-## The points for the final project are broken down as follows: 
-### Writing (abstract, intro, methods, results, discussion, references)
-
-* 30 points(25%) Document is fully reproducible and housed on GitHub 
-* 25 points (21%) Demonstrate use of inline code 
-* 5 points (4%) Demonstrate tidying messy data 
-* 30 points (25%) Two data visualizations 
-* 20 points(10 points each) (17%) Production of at least one table (of summary
-  statistics or model results)
-* 10 points (8%)

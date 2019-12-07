@@ -24,14 +24,11 @@ output: html_document
       -through Q28 
 
 - Brock:
-  - figure of the heatmap with survey data overlaid
-  - holepunch
-  - renv/packrat
+  - figure of U.S heatmap with survey data overlaid
+  - holepunch/renv/packrat
   - model = simple linear regresion
-  - inline code
   - summary table of model
-  - 
-
+  - inline code
 
 ## Dataset
 
