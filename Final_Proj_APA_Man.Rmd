@@ -329,7 +329,7 @@ ggplot(aes(x = question)) +
                             "7" = "Negotiate and Resolve Conflict",
                             "8" = "Communicate Clearly, Effectively, and with Reason")) +
 labs(
-title = " Importance of Interpersonal Skills When Hiring Across Industries",
+title = " Importance of Interpersonal Skills",
 x = "",
 y = "")
 
@@ -338,16 +338,17 @@ y = "")
 ```
 
 
-```{r industry_table}
 
-View(d_long1)
+```{r averageresponse}
+
 d_long %>% 
-  mutate(category_1= recode(.,
-                               levels = c(
-                                  "0" = 'Not at all',
-                              'Somewhat' = "1",
-                              'Very' = "2",
-                              'Extremely' = "3"))))
+ filter(  industry == "Education, Training, and Library" |
+           industry == "Business and Financial" |
+           industry == "Healthcare" &
+          type == "interpers") %>% 
+  mutate(category = as.numeric(factor(category))) %>% 
+  group_by(question) %>% 
+  summarize('Average Response' = mean(category))
 
 
 ```
