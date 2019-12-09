@@ -88,10 +88,10 @@
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.14",
+      "Version": "0.16",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "7be91ff9faf41931487a98dfc404608e"
+      "Hash": "a4f82e7d3a3ff87b3abd2ce1784cb570"
     },
     "broom": {
       "Package": "broom",
@@ -242,10 +242,10 @@
     },
     "foreign": {
       "Package": "foreign",
-      "Version": "0.8-72",
+      "Version": "0.8-71",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "646c8f8861ef8e1d6e9e8eb0b3912495"
+      "Hash": "0a3e9cb4f946d20e3ce0eae1ae17c746"
     },
     "fs": {
       "Package": "fs",
@@ -256,10 +256,10 @@
     },
     "future": {
       "Package": "future",
-      "Version": "1.15.0",
+      "Version": "1.15.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "01f6cc831a7f6f76a1c2f52e5479b144"
+      "Hash": "240ef07942f8481f1b5f865580874243"
     },
     "generics": {
       "Package": "generics",
@@ -486,10 +486,10 @@
     },
     "mgcv": {
       "Package": "mgcv",
-      "Version": "1.8-29",
+      "Version": "1.8-28",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3d19f03b6ca6c8c49619f98d21c7dd4b"
+      "Hash": "6ac256e4fdcf33c11f9ed987927cc614"
     },
     "mime": {
       "Package": "mime",
@@ -521,10 +521,10 @@
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-141",
+      "Version": "3.1-140",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "be8db89838a17117a4083e72350443e0"
+      "Hash": "ad3b02c6f154deac3584133e6e015cd3"
     },
     "openssl": {
       "Package": "openssl",
@@ -701,10 +701,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "1.17",
+      "Version": "1.18",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "b0829435ecf8d260997ac7afb01f29ca"
+      "Hash": "d215e8f618a90708d146520701059baa"
     },
     "rprojroot": {
       "Package": "rprojroot",

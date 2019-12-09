@@ -1,6 +1,6 @@
 ---
-title             : "EDLD 610 Final Project"
-shorttitle        : "Employer Perspectives on Hiring Individuals with Disabilities"
+title             : "Employer Perspectives on Hiring Individuals with Disabilities"
+shorttitle        : "EDLD 610 Final Project"
 author:
   - name          : "Akhila Nekkanti"
     affiliation   : "1"
@@ -24,12 +24,9 @@ authornote: |
   Akhila Nekkanti (B.S.) is a doctoral candidate in the Prevention Science
   program at the University of Oregon. Her current research examines the impacts
   of early adversity on children's executive functioning capacities and
-  resting-state neural activity. Akhila is co-mentored by Drs. Skowron and Mills
-  on her OSLER TL1 project examining the impacts of an intensive, practice-based
-  intervention (i.e., PCIT) on children's functional brain organization. Her
-  long-term goal is to delineate the type and extent of environmental enrichment
-  necessary for enhancing lasting change in self-regulatory capacity in children
-  facing early caregiving adversity and trauma.
+  resting-state neural activity.Her long-term goal is to delineate the type and 
+  extent of environmental enrichment necessary for enhancing lasting change in 
+  self-regulatory capacity in children facing early caregiving adversity and trauma.
 
   Kyle Reardon (M.A. Special Education) is a doctoral candidate at the
   University of Oregon and a Graduate Employee in the Special Education
@@ -267,8 +264,7 @@ higherorder <- d_trim %>%
 
 higherorder_result = likert(higherorder)
 plot(higherorder_result, type = "bar",
-     text.size = 4,
- main = "Higher Order Thinking Skills")
+     main = "Higher Order Thinking Skills")
 ```
 
 ```{r, persmanage, fig.cap = "Personal Management Skills"}
@@ -337,10 +333,25 @@ title = " Importance of Interpersonal Skills When Hiring Across Industries",
 x = "",
 y = "")
 
+
+#removed heading for Introduction below, as per apa guidelines
 ```
 
 
-# Introduction
+```{r industry_table}
+
+View(d_long1)
+d_long %>% 
+  mutate(category_1= recode(.,
+                               levels = c(
+                                  "0" = 'Not at all',
+                              'Somewhat' = "1",
+                              'Very' = "2",
+                              'Extremely' = "3"))))
+
+
+```
+
 
 Meaningful employment is one of the cornerstones of adult life and has been
 identified as a critical need for individuals with disabilities
@@ -457,8 +468,8 @@ disabilities.
 
 Preliminary work included some basic transformations as we move from raw to tidy
 data. As we attempt to answer our research questions we decided it is best to
-work with only a subset of the data. We filter the data to better answer the
-research questions. For example, we examined missing data and determine whether
+work with only a subset of the data. We filtered the data to better answer the
+research questions. For example, we examined missing data and determined whether
 we can consider that data is missing at random or if what we have is missing
 data that needs to be coded as zero. We filtered our data to include only
 employers who provided complete or near complete data. After we have transformed
@@ -471,6 +482,8 @@ of variables we examine by creating scales via exploratory and confirmatory
 factor analysis.
 
 # Results 
+
+Exploratory data visualization strategies provided valuable information regarding employer perspectives. 
 
 We modeled the number of surveys retured by each state's political affiliation
 (republican and democrat) percentage `r results$full_result$modelfit$r2`. The
