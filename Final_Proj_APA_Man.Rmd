@@ -81,11 +81,9 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
-renv::snapshot()
 # devtools::install_deps()
-# library(devtools)
+library(devtools)
 library(dplyr)
-library(renv)
 library(holepunch)
 library(papaja)
 library(rio)

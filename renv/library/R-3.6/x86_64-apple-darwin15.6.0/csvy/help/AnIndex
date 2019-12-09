@@ -1,8 +1,0 @@
-csvy-package	csvy
-colclass_dict	colclass_dict
-csvy	csvy
-get_yaml_header	get_yaml_header
-read_csvy	read_csvy
-read_metadata	read_metadata
-write_csvy	write_csvy
-write_metadata	write_metadata
