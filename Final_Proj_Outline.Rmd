@@ -69,13 +69,13 @@ At the end of Week 8, we will have a draft of the data preparation complete,
 including moving the data from its raw to tidy form and a variety of exploratory
 data visualizations. Final project will use the following functions:  
 
-* `gather`
-* `separate`
-* `select`
-* `filter`
-* `spread`
-* `group_by`
-* `summarize`
+* `gather = pivot_longer` X
+* `separate` ?
+* `select` X
+* `filter` X
+* `spread = piviot_wider` ?
+* `group_by` ?
+* `summarize` ?
 
 ### Peer Review of Data Preparation Script (25 points)
 During our peer review, we will note:  
