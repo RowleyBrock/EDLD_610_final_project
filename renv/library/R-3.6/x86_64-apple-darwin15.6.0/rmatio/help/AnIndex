@@ -1,0 +1,5 @@
+rmatio-package	rmatio
+read.mat	read.mat
+rmatio	rmatio
+write.mat	write.mat-methods
+write.mat,list-method	write.mat-methods

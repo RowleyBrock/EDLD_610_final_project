@@ -1,0 +1,4 @@
+read.mat                Read Matlab file
+rmatio                  'rmatio': reading and writing Matlab MAT files
+                        from R
+write.mat               Write Matlab file
