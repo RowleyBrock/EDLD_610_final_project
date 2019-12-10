@@ -99,6 +99,8 @@ library(psych)
 library(likert)
 library(shadowtext)
 library(stargazer)
+library(kableExtra)
+library(knitr)
 
 ```
 
@@ -332,7 +334,6 @@ title = " Importance of Interpersonal Skills",
 x = "",
 y = "")
 
-
 #removed heading for Introduction below, as per apa guidelines
 ```
 
@@ -340,17 +341,22 @@ y = "")
 
 ```{r averageresponse}
 
-d_long %>% 
- filter(  industry == "Education, Training, and Library" |
-           industry == "Business and Financial" |
-           industry == "Healthcare" &
-          type == "interpers") %>% 
-  mutate(category = as.numeric(factor(category))) %>% 
-  group_by(question) %>% 
-  summarize('Average Response' = mean(category))
+d_wide <- d_long %>% 
+  mutate(question = as.integer(question)) %>% 
+  mutate(category = as.integer(category)) %>% 
+  pivot_wider(names_from = industry,
+              values_from = category,
+              values_fn = list(category = mean)) %>% 
+  clean_names() %>% 
+  select(education_training_and_library, business_and_financial, healthcare, type, question) %>% 
+  filter(type == "interpers") %>% 
+  drop_na() %>% 
+  group_by("Question" = question) %>% 
+  summarize("Education, Training, and Library" = mean(education_training_and_library),
+            "Business and Financial" = mean(business_and_financial),
+            "Healthcare" = mean(healthcare))
 
-
-
+apa_table(d_wide, caption = "Average Response by Industry")
 
 ```
 
