@@ -491,14 +491,18 @@ factor analysis.
 
 # Results 
 
-Exploratory data visualization strategies provided valuable information regarding employer perspectives. 
+Exploratory data visualization strategies provided valuable information regarding employer perspectives. Across all industries, over 59% of employers considered higher order skills to be important when hiring individuals with disabilities. 96% of employers ranked an individual's ability to seek help when needed as very important or extremely important. Comparatively, only 60% of employers ranked an individual's ability to think creatively to be very important or extremely important. Personal management skills were shown to be very important to employers across all industries. These skills included an individual's ability to: follow schedules, stay with a task until finished, monitor quality of work, accept authority, and be on time. 
 
-We modeled the number of surveys retured by each state's political affiliation
+Comparisons across the education, business, and health care industries revealed similar rankings of the importance of interpersonal skills when hiring individuals. 
+
+We also modeled the number of surveys returned by each state's political affiliation
 (republican and democrat) percentage `r results$full_result$modelfit$r2`. The
 estimate, centered on the average republican percentage by each individaul
 state, found `r results$full_result$repc` No significant evidence exists that
 political affiliation has any effect on the number of responses to this survey,
 retured by individual states.
+
+
 \newpage
 
 # Discussion
@@ -507,8 +511,20 @@ We were fairly certain that republican dominated states would return
 significantly less responses to a survery involving individuals with
 disabilities. We are still shocked that nothing significant was discovered
 during this fishing expedition. Perhaps, some research bias was induced by a
-party affiliation that would stand behind these discriminatory actions?  
+party affiliation that would stand behind these discriminatory actions.
+
+Overall, data visualization techniques revealed similar rankings of skills across all industries. Future directions include examination of the following research questions:
+
+>*a)* What are the perspectives of employers toward hiring individuals with disabilities?
+>*b)* What do employers identify as barriers to hiring individuals with disabilities? 
+>*c)* What are employers' experiences hiring individuals with disabilities?
+
+
+\newpage
+
+
 ![](Figures/ducktrump.jpeg)
+
 \newpage
 
 # References
