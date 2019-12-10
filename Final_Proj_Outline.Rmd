@@ -18,10 +18,12 @@ output: html_document
   - reorder: columns 24-28 (make column 25 come after column 24)
 
 - Akhila:
-  - frequency count for each question, then bar plot OR recode from string to values
-  - figure: likert scale plots 
-      cols: Q24 -- has 6 different parts
-      -through Q28 
+  -Frequency count for each question
+  -Bar plot OR recode from string to values
+  -Figure: likert scale plots
+  -Cols: Q24 has 6 different parts through Q28
+  -Group_by
+  -Summarize
 
 - Brock:
   - figure of U.S heatmap with survey data overlaid
@@ -70,12 +72,12 @@ including moving the data from its raw to tidy form and a variety of exploratory
 data visualizations. Final project will use the following functions:  
 
 * `gather = pivot_longer` X
-* `separate` ?
+* `separate = names_sep` ?
 * `select` X
 * `filter` X
-* `spread = piviot_wider` ?
-* `group_by` ?
-* `summarize` ?
+* `spread = piviot_wider` X
+* `group_by` X
+* `summarize` X
 
 ### Peer Review of Data Preparation Script (25 points)
 During our peer review, we will note:  

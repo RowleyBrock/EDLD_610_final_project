@@ -47,3 +47,20 @@ Question & \multicolumn{1}{c}{Education, Training, and Library} & \multicolumn{1
 \end{center}
 
 \end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[tbp]
+\begin{center}
+\begin{threeparttable}
+\caption{\label{tab:averageresponse}Average Resonses}
+\begin{tabular}{lllll}
+\toprule
+Predictor & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{95\% CI} & \multicolumn{1}{c}{$t(49)$} & \multicolumn{1}{c}{$p$}\\
+\midrule
+Intercept & 13.29 & $[8.51$, $18.08]$ & 5.59 & < .001\\
+Repc & -0.39 & $[-0.96$, $0.18]$ & -1.37 & .178\\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\end{center}
+\end{table*}
