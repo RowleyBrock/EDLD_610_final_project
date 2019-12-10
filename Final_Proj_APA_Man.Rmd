@@ -265,6 +265,7 @@ higherorder <- d_trim %>%
 
 higherorder_result = likert(higherorder)
 plot(higherorder_result, type = "bar",
+     cex.lab = 0.3,
      main = "Higher Order Thinking Skills")
 ```
 
@@ -288,6 +289,7 @@ persmanage <- d_trim %>%
 
 persmanage_result = likert(persmanage)
 plot(persmanage_result, type = "bar",
+     cex.lab=0.3,
  main = "Personal Management Skills")
 ```
 
