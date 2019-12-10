@@ -339,7 +339,7 @@ y = "")
 
 
 
-```{r averageresponse}
+```{r averageresponse, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
 
 d_wide <- d_long %>% 
   mutate(question = as.integer(question)) %>% 
