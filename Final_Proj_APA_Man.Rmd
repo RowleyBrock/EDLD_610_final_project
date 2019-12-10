@@ -24,7 +24,7 @@ authornote: |
   Akhila Nekkanti (B.S.) is a doctoral candidate in the Prevention Science
   program at the University of Oregon. Her current research examines the impacts
   of early adversity on children's executive functioning capacities and
-  resting-state neural activity.Her long-term goal is to delineate the type and 
+  resting-state neural activity. Her long-term goal is to delineate the type and 
   extent of environmental enrichment necessary for enhancing lasting change in 
   self-regulatory capacity in children facing early caregiving adversity and trauma.
 
@@ -49,7 +49,7 @@ abstract: |
   engagement within the community. A primary focus of the employment literature
   to date has been on strategies to improve employment readiness and the
   identification of factors that influence employment outcomes for students with
-  disabilities.Thus, a gap has been identified between the preparedness of
+  disabilities. Thus, a gap has been identified between the preparedness of
   individuals with disabilities for competitive integrated employment and the
   willingness of employers to hire them. Therefore, it is necessary to better
   understand the perspectives of employers on individuals with disabilities in
@@ -435,14 +435,15 @@ on hiring individuals with disabilities on the part of employers.
 >*b)* How do employers rank, "Higher Order Skills" when hiring individuals with disabilities?  
 >*c)* How do employers rank, "Personal Management Skills" when hiring individuals with disabilities?  
 >*d)* How do employers rank, "Interpersonal Skills" when hiring individuals with disabilities?
+>*e)* Is there a relationship between political affiliation and willingness to respond to the survey?
 
 A researcher-developed survey, comprised of questions targeting the hiring
 practices and willingness of employers to hire individuals with disabilities was
-used in this study. The survey was anticipated to take approximately 20 minutes
+used in this study. The study focused both on questions about hiring and recruiting practices as well as the skills that employers determine to be the most important for entry-level employees. The survey was anticipated to take approximately 20 minutes
 to complete.
 
-Survey participants were contacted via email and asked to respond to an online
-survey. Recruitment emails  included a recruitment statement and a link to the
+Survey participants were contacted via email and asked to respond to the online
+survey. Recruitment emails included a recruitment statement and a link to the
 survey, which was developed using online survey software called Qualtrics. The
 survey was developed by the researchers conducting the current using previous
 employer surveys described in prior studies [@ju2014employability;
@@ -458,28 +459,19 @@ unable to be confirmed. They may be managers, Human Resources representatives,
 or others in charge of hiring. One simple analysis we conducted is a visual
 representation (heatmap) of survey responses by states.
 
-We used `r cite_r("r-references.bib")` for all our analyses. Given the
-exploratory purpose of the study (i.e., to learn more about the perspectives of
-employers toward hiring individuals with disabilities), analyses will be
-primarily descriptive in nature. Initially, however, we will conduct a
-confirmatory factor analysis to validate factor structures of employability
-skills, basing the factor structures on a previous study (Ju et al., 2012; Ju et
-al., 2014). Next, we will run descriptive statistics for survey items to explore
-patterns among survey respondents. Logistic regression analyses will also be
-computed to explore whether certain variables are predictive of employers’
-responses to individual survey items. Structural equation modeling (e.g.,
-exploratory factor analysis) may be used to identify the factor structure of
-perceived characteristics of employers willing to hire individuals with
-disabilities.
+We used `r cite_r("r-references.bib")` for all our analyses. 
 
-Preliminary work included some basic transformations as we move from raw to tidy
-data. As we attempt to answer our research questions we decided it is best to
+Given the
+exploratory purpose of the study (i.e., to learn more about the perspectives of
+employers toward hiring individuals with disabilities), analyses are
+primarily descriptive in nature in order to explore
+patterns among survey respondents. Preliminary work included some basic transformations as we move from raw to tidy data. As we attempt to answer our research questions we decided it is best to
 work with only a subset of the data. We filtered the data to better answer the
 research questions. For example, we examined missing data and determined whether
 we can consider that data is missing at random or if what we have is missing
 data that needs to be coded as zero. We filtered our data to include only
 employers who provided complete or near complete data. After we have transformed
-our dataset we begin the process of visualization. This included, but not
+our dataset we begin the process of visualization. This included, but is not
 limited to, examining bar charts, histograms, line charts and scatterplots using
 _ggplot_. We also examined basic descriptive data (e.g., means, Standard
 deviations, correlations, etc.). The visual and descriptive analysis helped
@@ -491,17 +483,14 @@ factor analysis.
 
 Exploratory data visualization strategies provided valuable information regarding employer perspectives. Across all industries, over 59% of employers considered higher order skills to be important when hiring individuals with disabilities. 96% of employers ranked an individual's ability to seek help when needed as very important or extremely important. Comparatively, only 60% of employers ranked an individual's ability to think creatively to be very important or extremely important. Personal management skills were shown to be very important to employers across all industries. These skills included an individual's ability to: follow schedules, stay with a task until finished, monitor quality of work, accept authority, and be on time. 
 
-Comparisons across the education, business, and health care industries revealed similar rankings of the importance of interpersonal skills when hiring individuals. 
-
 We also modeled the number of surveys returned by each state's political affiliation
 (republican and democrat) percentage `r results$full_result$modelfit$r2`. The
 estimate, centered on the average republican percentage by each individaul
 state, found `r results$full_result$repc` No significant evidence exists that
 political affiliation has any effect on the number of responses to this survey,
-retured by individual states.
+retured by individual states. The results of this analyses are displayed in Table 1.
 
-
-\newpage
+As can be seen in Table 2, comparisons across the education, business, and health care industries revealed similar rankings of the importance of interpersonal skills when hiring individuals. 
 
 # Discussion
 
@@ -511,11 +500,17 @@ disabilities. We are still shocked that nothing significant was discovered
 during this fishing expedition. Perhaps, some research bias was induced by a
 party affiliation that would stand behind these discriminatory actions.
 
-Overall, data visualization techniques revealed similar rankings of skills across all industries. Future directions include examination of the following research questions:
+Overall, data visualization techniques revealed similar rankings of skills across all industries. This suggests that there are no significant differences among employer perspectives across industries. However, future research should confirm these findings. Future research directions also include examination of the following research questions that were not investigated by the current study:
 
 >*a)* What are the perspectives of employers toward hiring individuals with disabilities?
 >*b)* What do employers identify as barriers to hiring individuals with disabilities? 
 >*c)* What are employers' experiences hiring individuals with disabilities?
+
+There are several limitations of this study. For example, there was a small number of survey responses per state, limiting the number of sophisticated analyses that can be completed and limiting the power of even basic analyses. A larger pool of data in future studies will help reduce this limitation. Another limitation may be the wide range of the roles of survey respondents, as perspectives and attitudes may vary widely across roles. Our study did not examine these differences, but future studies should investigate this. Finally, future research should examine response differences across company size, as this current study was limited to a broad investigation across all company sizes and did not break down responses by size.
+
+# Conclusion
+
+While we work to prepare students with disabilities with the skills they need to be successful in a variety of employment settings, it is important to better understand the perspectives and attitudes of employers toward hiring these individuals. Therefore, this study sought to better understand these perspectives by surveying employers about both their hiring and retention practices and the skills they believe are most important for entry-level employees. Better understanding of these perspectives will lead to improved education and training for individuals with disabilities and, ultimately, an improved workforce.
 
 
 \newpage
