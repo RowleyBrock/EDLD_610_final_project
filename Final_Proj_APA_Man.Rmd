@@ -99,8 +99,6 @@ library(psych)
 library(likert)
 library(shadowtext)
 library(stargazer)
-library(kableExtra)
-library(knitr)
 
 ```
 
@@ -339,7 +337,7 @@ y = "")
 
 
 
-```{r averageresponse, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE, results = "asis", out.header = TRUE}
+```{r, averageresponse, results = "asis", out.header = TRUE}
 
 d_wide <- d_long %>% 
   mutate(question = as.integer(question)) %>% 
