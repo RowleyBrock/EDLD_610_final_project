@@ -41,7 +41,7 @@ authornote: |
   Methodolgy, Policy, and Leadership (EMPL) in the Coledge of Education at the
   University of Oregon.
 
-  Jeff Gau 
+  Jeff Gau, M.S., a senior data analyst began work at ORI in 1993 as a research programmer for the Depression Research Group, working primarily on research projects associated with the longitudinal Oregon Adolescent Depression Project (OADP). A Co-Investigator on a recently funded grant from the National Institute on Alcohol Abuse and Alcoholism (NIAAA), Jeff has extensive experience in the analysis of prospective data in the context of epidemiological studies, quasi-experimental designs, randomized clinical trials, and group randomized clinical trials. Most recently, Jeff has expanded his analytic skills to include program evaluation with local and state agencies.
 
 abstract: |
   Not only does a career promote financial independence, it can also provide an
@@ -288,7 +288,6 @@ persmanage <- d_trim %>%
 
 persmanage_result = likert(persmanage)
 plot(persmanage_result, type = "bar",
-     text.size = 4,
  main = "Personal Management Skills")
 ```
 
@@ -334,12 +333,11 @@ title = " Importance of Interpersonal Skills",
 x = "",
 y = "")
 
-#removed heading for Introduction below, as per apa guidelines
 ```
 
 
 
-```{r averageresponse, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+```{r averageresponse, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE, results = "asis", out.header = TRUE}
 
 d_wide <- d_long %>% 
   mutate(question = as.integer(question)) %>% 
