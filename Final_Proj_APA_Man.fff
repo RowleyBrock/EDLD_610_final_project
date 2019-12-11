@@ -26,10 +26,3 @@
 \includegraphics{Final_Proj_APA_Man_files/figure-latex/pivotlonggganimate-1.pdf}
 \caption{\label{fig:pivotlonggganimate}Interpersonal Skills}
 \end{figure*}
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-
-\centering
-\includegraphics{Figures/ducktrump.jpeg}
-\caption{}
-\end{figure*}
