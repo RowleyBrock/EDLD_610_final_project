@@ -427,7 +427,7 @@ on hiring individuals with disabilities on the part of employers.
 >*a)* What states responded to the survey and at what rate?  
 >*b)* How do employers rank, "Higher Order Skills" when hiring individuals with disabilities?  
 >*c)* How do employers rank, "Personal Management Skills" when hiring individuals with disabilities?  
->*d)* How do employers rank, "Interpersonal Skills" when hiring individuals with disabilities?
+>*d)* How do employers rank, "Interpersonal Skills" when hiring individuals with disabilities?  
 >*e)* Is there a relationship between political affiliation and willingness to respond to the survey?
 
 A researcher-developed survey, comprised of questions targeting the hiring
@@ -504,12 +504,6 @@ There are several limitations of this study. For example, there was a small numb
 # Conclusion
 
 While we work to prepare students with disabilities with the skills they need to be successful in a variety of employment settings, it is important to better understand the perspectives and attitudes of employers toward hiring these individuals. Therefore, this study sought to better understand these perspectives by surveying employers about both their hiring and retention practices and the skills they believe are most important for entry-level employees. Better understanding of these perspectives will lead to improved education and training for individuals with disabilities and, ultimately, an improved workforce.
-
-
-\newpage
-
-
-![](Figures/ducktrump.jpeg)
 
 \newpage
 
