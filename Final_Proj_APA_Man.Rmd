@@ -93,7 +93,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
 #devtools::install_deps()
 library(devtools)
 library(dplyr)
-library(holepunch)
+#library(holepunch)
 library(papaja)
 library(rio)
 library(here)
@@ -117,8 +117,8 @@ d <- import(here("data", "employer.sav")) %>%
 
 d_trim <- d %>% 
   select(location_latitude, location_longitude, q3:q6, q7, q8, q25_1:q28_7) %>% 
-  filter(complete.cases(.)) %>% 
-  rename(loc_lat = location_latitude, 
+  filter(complete.cases(.)) %>% # could have also used ?drop_na
+  rename(loc_lat = location_latitude, #nice code style
          loc_long = location_longitude, 
          role = q3, 
          company_size = q5, 
@@ -134,12 +134,13 @@ d_trim <- d %>%
          basic_7 = q25_7, 
          basic_8 = q25_8, 
          higherorder_1 = q24_1, 
-         higherorder_2 = q24_2, 
-         higherorder_3 = q24_3, 
+         #for these groups of columns (higherorder, persmanage, etc.), you could use: rename_at(vars(contains("higherorder)),funs(str_replace(., "q24", "higherorder)))
+         higherorder_2 = q24_2,  
+         higherorder_3 = q24_3,            
          higherorder_4 = q24_4, 
          higherorder_5 = q24_5, 
          higherorder_6 = q24_6, 
-         persmanage_1 = q26_1, 
+         persmanage_1 = q26_1,  
          persmanage_2 = q26_2, 
          persmanage_3 = q26_3, 
          persmanage_4 = q26_4, 
@@ -170,7 +171,7 @@ d_trim <- d %>%
 ```{r heatmap, fig.cap = "Number of surveys collected by state."}
 centroids <- import(here("data", "centroids.csv"), 
                     setclass = "tbl_df") %>% 
-  mutate(region = tolower(name))
+  mutate(region = tolower(name)) #nice!
 
 counts_state <- count(d_trim, region = tolower(q4))
 
@@ -181,7 +182,7 @@ states <- map_data("state")
 md <- left_join(states, counts_state) %>% 
   mutate(states = "state",
          n = ifelse(is.na(n), 0, n))
-
+# Really great plot!
 ggplot(md, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = n),
                color = "gray40") +
@@ -219,6 +220,7 @@ tbl <- import(here("data", "tbl.csv"),
 
 counts_state <- count(d_trim, region = tolower(q4))
 
+#You could pipe lines 224-230 rather than making two objects
 centroids <- left_join(centroids, counts_state) %>% 
   mutate(n = ifelse(is.na(n), 0, n))
 
@@ -228,7 +230,7 @@ centroids2 <- centroids %>%
   mutate(repc = as.numeric(scale(republican, scale = FALSE)))
 
 fit <- lm(n ~ repc, data = centroids2)
-results <- apa_print(fit) 
+results <- apa_print(fit) #nice use of apa_print
 
 apa_table(results$table,
           caption = "Simple Linear Regression Model")
@@ -237,6 +239,7 @@ apa_table(results$table,
 ```{r likertplots, fig.cap = "Higher order skills"}
 d_trim <- d_trim %>% 
   drop_na() %>% 
+# Nice code below! I gave you an extra point for your nice use of mutate and their helper functions.
   mutate_at(vars("basic_1":"attribute_7"), 
             funs(factor(.,
                                levels = c(
@@ -247,7 +250,7 @@ d_trim <- d_trim %>%
                               ordered = TRUE)))
 
 higherorder <- d_trim %>% 
-  select(contains("higherorder")) %>% 
+  select(contains("higherorder")) %>% #good helper function
   rename(
     "Ability to Solve Problems" = higherorder_1,
     "Ability to Seek Help When Needed" = higherorder_2,
@@ -288,8 +291,8 @@ plot(
   main = "Personal Management Skills")
 ```
 
-
-```{r pivotlonggganimate, fig.cap = "Interpersonal Skills" }
+<!-- I changed the figure width here in the chunck options to help the fig fit. -->
+```{r pivotlonggganimate, fig.cap = "Interpersonal Skills", fig.width=8.5 }
 
 #view(d_long)
 
@@ -303,31 +306,34 @@ d_long <- d_trim %>%
     values_drop_na = TRUE
   )
 
+#This is great code! It incorporated so many of the things we learned this term. Be careful here because the industry names are long and are thus cut off in your final paper. I took a point off for this.
 d_long %>% 
   filter(type == "interpers" &
            industry == "Education, Training, and Library" |
            industry == "Business and Financial" |
            industry == "Healthcare") %>% 
-ggplot(aes(x = question)) +
+  ggplot(aes(x = question)) +
   geom_bar(aes(fill = category), alpha = 0.7, position = position_stack(reverse = TRUE)) +
-                 coord_flip() +
-                 theme(legend.position = "top") +
+  coord_flip() + #nice!
+  theme(legend.position = "top") +
   facet_wrap(~industry) +
   theme(axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) +
-  scale_x_discrete(labels = c("1" = "Use Socially Acceptable Language",
-                            "2" = "Show Respect for Others",
-                            "3" = "Work Well with Individuals from Diverse Backgrounds",
+# You can use regular expression to add a new line (\n) to these labels to make more room. See below.  
+  scale_x_discrete(labels = c("1" = "Use Socially\n Acceptable Language",
+                            "2" = "Show Respect\n for Others",
+                            "3" = "Work Well with Individuals\n from Diverse Backgrounds",
                             "4" = "Cooperate with Others",
-                            "5" = "Model Integrity and Ethical Leadership",
+                            "5" = "Model Integrity and\n Ethical Leadership",
                             "6" = "Advocate for Self",
-                            "7" = "Negotiate and Resolve Conflict",
-                            "8" = "Communicate Clearly, Effectively, and with Reason")) +
+                            "7" = "Negotiate and\n Resolve Conflict",
+                            "8" = "Communicate Clearly, \nEffectively, and with Reason")) +
 labs(
 title = " Importance of Interpersonal Skills",
 x = "",
-y = "")
+y = "",
+fill = "") # I removed the legend title because it was not giving information.
 ```
 
 ```{r, averageresponse, results = "asis", out.header = TRUE}
@@ -369,7 +375,7 @@ percentage of persons with disabilities who are employed was only 17.9 percent
 as compared to 65.3 percent of persons without disabilities. These employment
 disparities not only affect the economic well-being of individuals with
 disabilities (e.g., low income levels and high poverty rates), but also their
-social inclusion @krahn2011world. The 1990 Americans with Disabilities Act and
+social inclusion [@krahn2011world]. The 1990 Americans with Disabilities Act and
 subsequent 2008 amendments, combined with the 2006 UN convention on the Rights
 of Persons with Disabilities, is evidence that improving employment
 opportunities for people with disabilities is an important goal in the United
@@ -421,7 +427,7 @@ individuals with disabilities in the workforce. Better understanding of this gap
 in knowledge will led to better outcomes for individuals with disabilities and
 more appropriate job matches, as well as leading to more positive perspectives
 on hiring individuals with disabilities on the part of employers.
-
+<!-- I took a point from the Method because I am used to seeing a description of the current study before the Method section. It helps set the context for the research questions.-->
 # Methods
 ## Research Questions:  
 >*a)* What states responded to the survey and at what rate?  
@@ -434,7 +440,7 @@ A researcher-developed survey, comprised of questions targeting the hiring
 practices and willingness of employers to hire individuals with disabilities was
 used in this study. The study focused both on questions about hiring and recruiting practices as well as the skills that employers determine to be the most important for entry-level employees. The survey was anticipated to take approximately 20 minutes
 to complete.
-
+<!-- If you do publish based on this study, it would be nice to include a copy of the survey in the Appendix. See https://crsh.github.io/papaja_man/writing.html#appendices -->
 Survey participants were contacted via email and asked to respond to the online
 survey. Recruitment emails included a recruitment statement and a link to the
 survey, which was developed using online survey software called Qualtrics. The
@@ -453,7 +459,7 @@ or others in charge of hiring. One simple analysis we conducted is a visual
 representation (heatmap) of survey responses by states.
 
 We used `r cite_r("r-references.bib")` for all our analyses. 
-
+<!-- You can use headers, which would help organize the paper. Here, for instance, you could include ## Analyses -->
 Given the
 exploratory purpose of the study (i.e., to learn more about the perspectives of
 employers toward hiring individuals with disabilities), analyses are
@@ -473,7 +479,7 @@ of variables we examine by creating scales via exploratory and confirmatory
 factor analysis.
 
 # Results 
-
+<!-- The percentages reported in paragraph below would have been perfect for inline code. -->
 Exploratory data visualization strategies provided valuable information regarding employer perspectives. Across all industries, over 59% of employers considered higher order skills to be important when hiring individuals with disabilities. 96% of employers ranked an individual's ability to seek help when needed as very important or extremely important. Comparatively, only 60% of employers ranked an individual's ability to think creatively to be very important or extremely important. Personal management skills were shown to be very important to employers across all industries. These skills included an individual's ability to: follow schedules, stay with a task until finished, monitor quality of work, accept authority, and be on time. 
 
 We also modeled the number of surveys returned by each state's political affiliation
